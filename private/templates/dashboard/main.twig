@@ -1,0 +1,158 @@
+{% spaceless %}<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block pagetitle %}Slim Skeleton{% endblock %}</title>
+	<meta name="description" content="{% block sitedesc %}Slim Skeleton example{% endblock %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="shortcut icon" href="/favicon.png">
+	{% block header_include %}{% endblock %} 
+	<link href="/css/iconfont.css" rel="stylesheet" media="all">
+	<link href="/css/styles.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+</head>
+<body class="{% block bodyclass %}home{% endblock %}">
+	{% block header %}
+		<header role="banner" class="site-header">
+			<div class="topnav">
+				<div class="wrap">
+					<h1 class="site-title"><a href="{{ path_for('homepage') }}">Slim Skeleton</a></h1>
+					<nav id="user-navigation" role="navigation" class="nav-menu nav-user wrap">
+						<ul>
+							<li class="nav-add"><a href="#"><i class="icon-plus"></i> <span>{% trans "Add Item" %}</span></a></li>
+							{% if not user.login %}
+								<li><a href="{{ path_for('login') }}"><i class="icon-login"></i> <span>{% trans "Login" %}</span></a></li>
+								<li><a href="{{ path_for('signup') }}"><i class="icon-edit"></i> <span>{% trans "Signup" %}</span></a></li>
+							{% else %}
+								<li><a href="{{ path_for('dashboard') }}"><i class="icon-dashboard"></i> <span>{% trans "Dashboard" %}</span></a></li>
+								<li><a href="{{ path_for('profile') }}"><i class="icon-profile"></i> <span>{% trans "Profile" %}</span></a></li>
+								<li><a href="{{ path_for('logout') }}"><i class="icon-logout"></i> <span>{% trans "Logout" %}</span></a></li>
+								{% if user.role in ['Administrator','Manager','Moderator'] %}
+									<li>|</li>
+									<li><a href="{{ path_for('manage') }}"><i class="icon-cog-alt"></i> <span>{% trans "Admin" %}</span></a></li>
+								{% endif %}
+							{% endif %}
+						</ul>	
+					</nav>	
+				</div>
+			</div> 
+			<div class="header-content"> 
+				<div class="wrap">
+					<a href="{{ path_for('homepage') }}" class="site-logo"><abbr title="{% trans "Lelang Online - Olelang.com" %}"><img src="/img/logo.png" /></abbr></a>
+					<form action="#" class="search-bar" role="search">
+						<input type="search" name="s" placeholder="Search" size="60" />
+						<button type="submit"><i class="icon-search"></i></button>
+					</form>
+					<div class="sub-menu">
+						<a href="/help"><i class="icon-lifebuoy"></i> <span>{% trans "Need help?" %}</span></a>
+						{% block menutoggle %}
+							<a href="javascript:;" class="menu-toggle"><i class="icon-menu"></i></a>
+						{% endblock %}
+					</div>
+				</div>
+				
+			</div>	
+			
+		</header>
+
+	{% endblock %}
+	<div id="content" class="site-content">
+		<div class="wrap">
+	    	{% block sitecontent %} 
+				<main role="main">
+					{% block content %}
+						{#
+						<section>
+							<article id="introduction">
+								<h3>Navigation Only</h3>
+								<p>SASS Bourbon stylin on navigation</p>
+							</article>
+
+						</section>
+						#}
+					{% endblock %}
+				</main>
+				
+				{% block aside %} 
+					{#
+					<aside role="complementary">
+						<h3>Did you know?</h3>
+						<p>The article and section elements cause a lot of confusion when people are trying to decide how and when to use them. The article: <a href="http://www.iandevlin.com/blog/2011/04/html5/html5-section-or-article">section or article?</a> might help you choose.</p>
+					</aside>
+					#}
+				{% endblock %}
+			{% endblock %}
+		</div>
+	</div>
+
+	{% block subcontent %}{% endblock %}	
+
+	{% block subfooter %} 
+		<div class="sub-footer">
+			<div class="wrap">
+				<div class="ft_links">
+					<div class="ft_title">
+						<a href="/"><img alt="about us" src="/img/logow.png" /></a>
+						<span class="ft_cap">Sample Slim Skeleton</span>
+					</div>
+					<ul class="ft_cate">
+						<li><a href="/c/accessories">Accessories</a></li>
+						<li><a href="/c/clothing">Fashion</a></li>
+						<li><a href="/c/bags_and_purses">Bags and purses</a></li>
+						<li><a href="/c/interior">Furniture &amp; Household Goods</a></li>
+						<li><a href="/c/stationery">Stationery</a></li>
+						<li><a href="/c/housewares">Pottery, Glass, Tableware</a></li>
+						<li><a href="/c/art">Art photo</a></li>
+						<li><a href="/c/children">Baby Kids</a></li>
+					</ul>
+					<ul class="ft_cate">
+						<li><a href="/c/dolls">Boneka/Figurine</a></li>
+						<li><a href="/c/toys">Toys</a></li>
+						<li><a href="/c/pets">Pet Goods</a></li>
+						<li><a href="/c/aroma_and_candles">Aroma &amp; Candle</a></li>
+						<li><a href="/c/plants">Flower/Garden</a></li>
+						<li><a href="/c/material">Material</a></li>
+						<li><a href="/c/food">Food</a></li>
+					</ul>
+					<ul>
+						<li><a href="/about">About Us</a></li>
+						<li><a href="/service/sell">Sell</a></li>
+						<li><a href="/service/buy">Buy</a></li>
+						<li><a href="/signup">Signup</a></li>
+						<li><a href="/login">Login</a></li>
+						<li><a href="/app">Mobile App</a></li>
+						<li><a href="http://blog.olelang.com/">Blog</li>
+					</ul>
+					<ul>
+						<li><a href="/infos">Info</a></li>
+						<li><a href="/help">Frequently Asked Questions</a></li>
+						<li><a href="/guide">Guide</a></li>
+						<li><a href="/terms/idfa">Use of materials</a></li>
+						<li><a href="/terms">Terms of service</a></li>
+						<li><a href="/terms/cookie">The use of Cookie</a></li>
+						<li><a href="/contact">Contact Us</a></li>
+					</ul>
+				</div>
+				<div class="ft_social">Social</div>
+			</div>
+		</div>
+	{% endblock %}	
+
+	<footer role="contentinfo" class="site-footer">
+		<div class="wrap">
+			{#
+			<address>
+				<p>For further information, please contact htmlia.com.</p>
+			</address>
+			#}
+			<div class="colophon"><a href="/terms">Terms of Use</a> | <a href="/privacy">Privacy Policy</a> |  <a href="/team">Team</a> | <a href="/team/recruit">Recruit</a></div>
+			<div class="copyright">&copy; <time datetime="2017">2017</time> {% if  'now'| date('Y') > 2017 %}- <time datetime="{{ 'now' | date('Y') }}">{{ 'now' | date('Y') }}</time>{% endif %} yoursite.com</div>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='/js/jquery-3.1.1.min.js'>\x3C/script>")</script>
+	<script src="/js/functions.js"></script>
+    {% block footer_include %}{% endblock %} 
+</body>
+</html>{% endspaceless %}

@@ -1,0 +1,16 @@
+.site-header {
+	height: $mainnav-bar-height;
+	background-color: rgba(#999999,0.05);
+	box-shadow: 0 1px 5px 2px rgba(0,0,0,.1);
+}
+.site-header-content {
+	clear: both;
+	position: relative;
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 10px;
+}
+.site-logo {
+	height: $mainnav-bar-height;
+	width: auto;
+}

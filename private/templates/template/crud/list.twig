@@ -1,0 +1,49 @@
+{# ============================================================
+    List of Records
+   ============================================================ #}
+
+{% extends "main.html" %}
+{% block bodyclass %}class="listing"{% endblock %}
+{% block content %}
+  <div id="primary" class="content-area"> 
+  	<h1 class="page-title">Sample CRUD List </h1>
+
+    <a href="/crud/add" class="btn">Add new</a>
+  	<table class="list">
+  		<thead>
+  			<tr>
+  				<th>ID</th>
+  				<th>First Name</th>
+  				<th>Last Name</th>
+          <th>Score</th>
+          <th>Action</th>
+  			</tr>	
+  		</thead>
+      {% if results %}
+        <tbody>
+          {% for result in results %}
+            <tr>
+              <td>{{ result.ID }}</td>
+              <td>{{ result.firstname }}</td>
+              <td>{{ result.lastname }}</td>
+              <td>{{ result.score | number_format(2,".",",") }}</td>
+              <td><a href="/crud/edit/{{result.ID}}" class="btn btn-edit">Edit</a> <a href="/crud/del/{{result.ID}}" class="btn btn-del">Delete</a></td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      {% else %}        
+        <tbody>
+          <tr>
+            <td colspan="4">
+              No data available yet
+            </td>
+          </tr>  
+        </tbody>  
+      {% endif %}      
+  	</table>	
+  </div>
+{% endblock %}  
+
+{% block sidebar %}{% endblock %}
+
+{% block footer_content %}{% endblock %}

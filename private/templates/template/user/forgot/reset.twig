@@ -1,0 +1,39 @@
+{% extends "main.twig" %}
+{% block pagetitle %}{% trans "Forgot Password" %} - Olelang.com{% endblock %}
+{% block header_include %}<meta name="robots" content="noindex">{% endblock %} 
+{% block bodyclass %}class="login nosidebar"{% endblock %}
+
+{% block content %}
+	<h1 class="page-title">Reset Password</h1>  
+		<form action="" method="post" class="signupform">
+			<fieldset>
+				
+				{% if msg %}
+					<div class="flash-error">
+						<span>{{msg | raw}}</span>
+					</div>        
+				{% endif %}
+				<br>
+				{% if showform %}
+				<p>
+		          <label for="user_password">Password</label>
+		          <input placeholder="Password" name="password" type="password" value="" />
+		          <div class="desc">Use at least 6 characters</div>
+		        </p>
+		        <p>
+		          <label for="user_password">Password retype</label>
+		          <input placeholder="Password retype" name="password_retype" type="password" value="" />
+		        </p>
+				<br/>
+				<p>
+					<label>&nbsp;</label>
+					<input type="submit" name="submit" value="Reset Password">
+				</p>
+				{% endif %}
+			</fieldset>
+		</form>
+		<br>
+{% endblock %}
+
+
+	

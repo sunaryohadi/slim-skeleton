@@ -1,0 +1,33 @@
+
+// Default Grid
+$neat-grid: (
+  columns: 4,
+  gutter: 10px,
+  direction: ltr,
+);
+
+// Mobile landscape
+$mobile: (
+  columns: 12,
+  media: 480px,
+  
+);
+
+// Tablet
+$tablet: (
+  columns: 12,
+  media: 768px,
+  
+);
+
+// Old Desktop
+$desktop: (
+  columns: 12,
+  media: 1024px,
+);
+
+// Wide Screen
+$wide: (
+  columns: 12,
+  media: 1280px,
+);

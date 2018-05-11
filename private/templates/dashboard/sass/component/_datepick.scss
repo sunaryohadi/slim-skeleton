@@ -1,0 +1,145 @@
+.datepick { 
+	background: rgba(#FFFFF7,0.98);
+	border: 1px solid #CCC;
+	border-radius: 0.5em;
+  	-moz-border-radius: 0.5em;
+  	-webkit-border-radius: 0.5em;
+	-webkit-box-shadow: 0px 3px 8px 0px rgba(200,200,200,0.5);
+	-moz-box-shadow: 0px 3px 8px 0px rgba(200,200,200,0.5);
+	box-shadow: 0px 3px 8px 0px rgba(200,200,200,0.5);
+  	font-size: 90%;
+  	width: 100%;
+  	max-width: 240px;
+  	padding: 5px 10px;
+  	line-height: 1.5;
+  	table {
+		margin:0;
+		th,td {
+			text-align: center;
+			padding:0;
+		}
+		th {
+			padding: 8px 0;
+		}
+		a {
+			display: block;
+			padding: 5px;
+			color: #000;
+			&:hover {
+				background: #FFF;
+				color: #000;
+			}
+			&.datepick-selected {
+				color: #800;
+				font-weight: bold;
+				background: rgba(#ffc,0.95);
+			}
+			&.datepick-today {
+				color: #C00;
+				background: #FFF;
+			}  		
+		}
+		td span {
+			color: #CCC;
+		}
+  	}
+}
+.datepick-nav a {
+	width: 33%;
+	display: inline-block;
+	padding: 5px 0;
+}
+.datepick-cmd-today {
+	text-align: center;
+}
+.datepick-cmd-next {
+	text-align: right;
+}
+.datepick-month-header select {
+	display: inline;
+	width: auto;
+	margin:0 auto;
+	padding: 2px 7px;
+}
+.datepick-ctrl a { 
+	display: inline-block;
+	width: 50%; 
+	padding: 5px 0;
+}
+.datepick-cmd-close {
+	text-align: right;
+}
+
+
+.ui-timepicker-wrapper {
+	overflow-y: auto;
+	max-height: 150px;
+	width: 6.5em;
+	background: #fff;
+	border: 1px solid #ddd;
+	-webkit-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	-moz-box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	box-shadow:0 5px 10px rgba(0,0,0,0.2);
+	outline: none;
+	z-index: 10001;
+	margin: 0;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration {
+	width: 13em;
+}
+
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-30,
+.ui-timepicker-wrapper.ui-timepicker-with-duration.ui-timepicker-step-60 {
+	width: 11em;
+}
+
+.ui-timepicker-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.ui-timepicker-duration {
+	margin-left: 5px; color: #888;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-duration {
+	color: #888;
+}
+
+.ui-timepicker-list li {
+	padding: 3px 0 3px 5px;
+	cursor: pointer;
+	white-space: nowrap;
+	color: #000;
+	list-style: none;
+	margin: 0;
+}
+
+.ui-timepicker-list:hover .ui-timepicker-selected {
+	background: #fff; color: #000;
+}
+
+li.ui-timepicker-selected,
+.ui-timepicker-list li:hover,
+.ui-timepicker-list .ui-timepicker-selected:hover {
+	background: #1980EC; color: #fff;
+}
+
+li.ui-timepicker-selected .ui-timepicker-duration,
+.ui-timepicker-list li:hover .ui-timepicker-duration {
+	color: #ccc;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled,
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+	color: #888;
+	cursor: default;
+}
+
+.ui-timepicker-list li.ui-timepicker-disabled:hover,
+.ui-timepicker-list li.ui-timepicker-selected.ui-timepicker-disabled {
+	background: #f2f2f2;
+}

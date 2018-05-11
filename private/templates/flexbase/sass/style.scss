@@ -1,0 +1,88 @@
+/*
+Project: Projct Name
+Project URI: http://projecturi
+Author: HTMLIA
+Author URI: http://www.htmlia.com
+Description: Base Bourbon SASS
+Version: 1.0.0
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1. Normalize & Bourbon Setting
+2. Layout
+3. Content
+4. Media
+	4.1 Captions
+	4.2 Galleries
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+1. Normalize & Bourbon Setting
+--------------------------------------------------------------*/
+@import "normalize";
+
+/* Bourbons */
+@import "mixins";
+@import "bourbon/bourbon";
+@import "grid-settings";
+@import "neat/neat";
+@import "mixin/mixin";
+@import "base/base";
+
+/* Custom styles */
+html, body {
+	background-color: #e8e8e8;
+}
+
+.flex {
+	width: 1024px;
+	margin: 0 auto;
+	display: flex;
+	overflow: auto;
+	flex: 1;
+}
+
+aside {
+	width: 240px; 
+	background: red;
+}
+
+main {
+	background: blue;
+	flex: 1;
+	order: 2;
+}
+
+.site-content {
+	background-color: #f2f2f2;
+}
+
+.colophon {
+	flex: 1;
+}
+
+.col-3  {
+	width: 33%;
+	flex-wrap: wrap;
+	// flex: 1;
+}
+/*
+@import "site";
+@import "component/header";
+@import "component/footer";
+@import "component/breadcrumb";
+@import "component/flashes";
+@import "component/autohide";
+@import "component/user";
+@import "component/datepick";
+@import "component/form";
+@import "component/itemlist";
+
+@import "component/dashboard_list";
+
+@import "section/home";
+@import "section/dashboard";
+@import "section/upload";
+*/

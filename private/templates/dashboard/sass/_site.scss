@@ -1,0 +1,131 @@
+$max-width: 1280px;
+$mainnav-bar-height: 50px;
+
+html, body {
+	height: 100%;
+}
+body {
+	background-color: #f7f7f7;
+	-webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+	max-width: $max-width;
+	margin: 0 auto;
+}
+
+.site-content {
+	@include grid-container();
+	background-color: #fff;
+	padding: 10px 0 30px 0;
+	position: relative;
+}
+
+// main content and aside default
+
+main {
+	@include grid-container;
+
+	@include grid-media($tablet) {
+		width: calc(100% - 225px);
+  		float: right;
+  	}
+
+}
+
+.menu-toggle {
+	@include grid-media($tablet) {
+		display: none;
+	}
+}
+
+aside {
+
+	display: none;	
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background-color: #FFF;
+
+	@include grid-media($tablet) {
+		display: block;
+		position: relative;
+		width: 220px;
+  		float: left; 
+  	}
+
+  	section {
+
+  		h3 {
+  			display: none;
+  			@include grid-media($tablet) {
+  				display: block;
+  			}
+			font-size: 15px;
+			padding: 2px 10px;
+			margin:0;
+			line-height: 2.0;
+			border-top: 1px solid #ccc;
+			background-color: #f7f7f7;
+  		}
+
+  		ul {
+  			border-top: 1px solid #eee;
+  		}
+  		li {
+  			border-bottom: 1px solid #eee;
+  			a {
+  				display: block;
+  				padding: 7px 15px;
+  				@include grid-media($tablet) {
+  					padding: 3px 10px;
+  				}
+  				line-height: 2.0;
+  				&:hover {
+  					background-color: rgba(#EEE, 0.5);
+  				}
+  			}
+  			&.active {
+  				a {
+  					color: #000;
+  				}
+  			}
+  		}
+  	}
+}
+
+// No sidebar
+.fullpage {
+	main {
+		width: 100%;
+		float: none; 
+		/*
+		section {
+			padding: 0 10px;
+		}
+		article {
+			padding: 10px;
+		}
+		*/
+	}
+	aside {
+		display: none;
+	}
+}
+
+.sub-content {
+	@include grid-container;
+	background-color: #FFF;
+	section {
+		padding: 20px 0;
+		overflow: hidden;
+		article {
+			@include grid-column(1 of 1);
+			h1 {
+				font-size: 16px;
+			}
+		}
+	}
+}
+

@@ -1,0 +1,39 @@
+{
+  "name": "sunaryohadi/slim3-skeleton",
+  "description": "Simple Slim Framework 3 skeleton with Twig, Monolog, ezSQL. Also has sample of simple CRUD.",
+  "version": "1.0.0-dev", 
+  "license": "BSD-3-Clause",
+  "type": "project",
+  "keywords": ["slim-framework", "skeleton", "ezSQL", "crud"],
+  "authors": [
+    {
+      "name": "Sunaryo Hadi",
+      "homepage": "http://www.sunaryohadi.info",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+        "App\\": "private/src"
+    }
+  },
+  "config": {
+    "vendor-dir": "private/vendor"
+  }, 
+  "require": {
+    "php" : ">=5.6",
+    "ext-mbstring": "*",
+    "slim/slim": "^3.10",
+    "slim/twig-view": "^2.4",
+    "twig/extensions": "^1.5",
+    "slim/flash": "^0.4.0",
+    "slim/csrf": "^0.8.2",
+    "sunaryohadi/ezsql-mysqli": "^1.2",
+    "phpmailer/phpmailer": "^6.0",
+    "google/recaptcha": "^1.1",
+    "hybridauth/hybridauth": "^2.10",
+    "snicholson/slimfilecache": "^1.0",
+    "gumlet/php-image-resize": "^1.8",
+    "monolog/monolog": "^1.23"
+  }
+}

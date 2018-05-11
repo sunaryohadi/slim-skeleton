@@ -1,0 +1,89 @@
+{% extends "main.twig" %}
+{% block header_include %}
+<link rel='stylesheet' id='chosen-css'  href='/js/chosen/chosen.min.css' type='text/css' media='all'>
+{% endblock %}
+{% block header_include %}<meta name="robots" content="noindex">{% endblock %} 
+{% block bodyclass %}class="login nosidebar"{% endblock %}
+
+{% block content %}
+	<h1 class="page-title">Signup</h1> 
+	<div class="wrap">
+		<ul class="progress-indicator">
+			<li class="completed"><span class="bubble"></span>Email confirmation sent</li>
+			<li class="completed"><span class="bubble"></span>Enter User Information</li>
+			<li><span class="bubble"></span>Confirm Information</li>
+			<li><span class="bubble"></span>Register Completed</li>
+		</ul>
+	</div>
+	<br>
+	<h2>User Information</h2>  
+
+	
+
+	<form action="" method="post" class="signupform">
+		<p class="req">* Required fields</p> 
+		<fieldset>
+			{% if msg %}
+				<div class="flash-error">
+					<span>{{msg}}</span>
+				</div>        
+			{% endif %}
+			<p>
+				<label for="email">Email <span class="req">*</span> </label>
+				<input placeholder="Email address" name="email_show" value="{{ r.email }}" disabled type="text"/>
+				<input type="hidden" name="email" value="{{ r.email}}" />
+				<div class="desc">Email can be change later in profile edit.</div>
+			</p>
+			<p>
+				<label for="country">Country <span class="req">*</span> </label>
+				<select name="country_iso" class="chosen">
+					<option value="">- {% trans "Select Country" %} -</option>
+					{% for c in countries %}
+						{% if r.country_iso == c.iso %}
+							<option value="{{ c.iso }}" selected>{{ c.country }}</option>
+						{% else %}
+							<option value="{{ c.iso }}">{{ c.country }}</option>
+						{% endif %}
+					{% endfor %}
+				</select>
+			</p>
+			<p>
+				<label for="username">Username <span class="req">*</span> </label>
+				<input placeholder="Username" name="username" value="{{ r.username }}" type="text" maxlength="16" />
+				<div class="desc">Use at least 4 characters</div>
+			</p>
+			<p>
+				<label for="user_password">Password <span class="req">*</span> </label>
+				<input placeholder="Password" name="password" type="password" value="{{ r.password }}" maxlength="20" />
+				<div class="desc">Use at least 6 characters</div>
+			</p>
+			
+			<p style="clear:both;">
+			  <label for="nickname">Display Name <span class="req">*</span> </label>
+			  <input placeholder="Display Name" name="nickname" value="{{ r.nickname }}" type="text" />
+			  <div class="desc">This name will shown in our website</div>
+			</p>
+			<p>
+				<label for="newsletter">Newsletter</label>
+				<input name="newsletter_flag" value="1" type="checkbox" {% if r.newsletter_flag %}checked{% endif %} /> Subscribe for news update.
+			</p>
+			<br/>
+			<p>
+				<label></label>
+				<input type="submit" name="submit" value="Next &raquo;" />
+				<input type="hidden" name="id" value="{{ r.id }}" />
+				<input type="hidden" name="token" value="{{ r.token }}" />
+			</p>
+		</fieldset>
+	</form>
+	<br>
+{% endblock %}
+
+{% block footer_include %}
+<script type="text/javascript" src="/js/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".chosen").chosen({width: "300px", search_contains:true });
+	});
+</script>
+{% endblock %}

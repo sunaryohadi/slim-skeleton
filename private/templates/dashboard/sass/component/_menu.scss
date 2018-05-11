@@ -1,0 +1,207 @@
+.menu-toggle {
+ 	position: absolute;
+ 	outline: 0;	 
+ 	left: 10px;
+ 	top: 7px;
+ 	padding: 10px;
+}
+
+.nav-menu {	
+	margin: 0 -15px;
+	ul {
+		display: none; 
+		position: relative;
+		z-index: 4;
+		background: #fff;
+		top: 50px;
+		border-bottom: 1px solid #e6e6e6;
+
+		li {
+			border-top: 1px solid #e6e6e6;
+		}
+		ul {
+			top: auto;
+			border-bottom: none;
+
+			li{
+				border: 0;
+			}
+			a {
+				font-weight: normal;
+				padding: 0 20px 0 40px;
+				line-height: 2.4em;
+			}
+		}
+	}
+	a {
+		display: block;
+		font-weight: bold;
+		line-height: 3em;		
+		padding: 0 20px;
+	}	
+}	
+
+@include grid-media($tablet){
+	.nav-menu {
+		clear : none;
+		float:left;
+		margin: 0;
+
+		.search-form input {
+			margin-top: 5px;
+			border-radius: 5px;
+			font-size: 16px;
+			line-height: 1.5em;
+		}
+
+		ul {
+			display: block !important;
+			top: auto;
+
+			ul {
+				float: left;
+				position: absolute;
+				top: $mainnav-bar-height - 10px;
+				left: -999em;
+				z-index: 3;
+				background: #fff;
+			    border: 1px solid #d6d6d6;
+			    border-radius: 0 5px 5px;
+			    box-shadow: 0 1px 2px #ccc;			
+			    margin-left: -1px;
+
+				ul {
+					left: -999em;
+					top: 0;
+				}
+
+				li {
+					border: 0;
+
+					&:hover > ul,
+					&.focus > ul,
+					&.taphover.hover > ul {
+						left: 100%;
+					}
+
+					&:hover, &.focus {
+						border:0;
+					}				
+
+					&:first-child a {
+						padding-top: 7px;
+					}
+
+					&:last-child a {
+						border-bottom: 0;
+					}					
+				}
+
+				a {
+					width: 200px;
+					line-height: 2.8em;
+					font-weight: normal;
+					font-size: 14px;
+					margin: 0 15px;
+					padding: 0;
+					border-bottom: 1px solid #e6e6e6;
+					z-index: 2;
+
+				}			
+
+				/*
+				:hover > a,
+				.focus > a {				
+
+				}
+
+				a:hover,
+				a.focus {
+				}
+				*/
+				
+			}		
+
+			li:hover > ul,
+			li.focus > ul {
+				left: auto;
+			}
+
+		}
+
+		li {
+			float: left;
+			position: relative; // needed for submenu
+			border-left: 1px solid transparent;
+			border-right: 1px solid transparent;
+						
+			&:hover > a,
+			&.focus > a {
+				color: red;
+				z-index: 4;	
+			}
+
+			&.more-menu {
+
+				&:hover,
+				&.focus {
+					border-left: 1px solid #d6d6d6;
+					border-right: 1px solid #d6d6d6;
+				}
+
+				&:hover > a,
+				&.focus > a {
+					background-color: #FFFFFF;		
+				}			
+			}
+
+			&.taphover.hover > ul {
+				left: auto;	
+			}
+			
+		}
+
+		a {
+			color: #000;
+			line-height: $mainnav-bar-height;			
+			display: block;
+			width: auto;
+			position: relative; // needed, so z-index working
+			padding: 0 15px;
+			font-size: 15px;
+		}
+
+		/*
+		.current_page_item > a,
+		.current-menu-item > a,
+		.current_page_ancestor > a,
+		.current-menu-ancestor > a {
+		}
+		*/
+
+	}
+
+	.menu-toggle {
+	 	display: none;
+	}
+}
+
+.nav-user {
+	float:right;
+	
+	ul {
+		display: inline-block;
+		background: transparent;
+		border: 0;
+		li {
+			border: 0;
+		}
+	}
+}
+
+.login .nav-login, .login .nav-signup, .nav-logout, .nav-profile {
+	display: none;
+}
+.nav-login, .nav-signup, .login .nav-logout, .login .nav-profile {
+	display: inline-block;
+}

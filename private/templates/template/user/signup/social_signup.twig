@@ -1,0 +1,87 @@
+{% extends "main.twig" %}
+{% block pagetitle %}{% trans "Signup" %} - Olelang.com{% endblock %}
+{% block bodyclass %}user{% endblock %}
+
+{% block header %}
+		<div class="wrap" style="text-align: center;">
+			<a href="{{ path_for('homepage') }}" class="site-logo"><abbr title="{% trans "Lelang Online - Olelang.com" %}"><img src="/img/logo.png" /></abbr></a>
+		</div>
+{% endblock %}
+
+{% block content %}
+	<h1 class="page-title">{% trans "Signup using" %} {{ social.social}}</h1>
+	<p class="sub-page-title">{% trans "You have to fill some required fields to continue" %}</p>
+
+	<div class="w_social">
+		<h3>{% trans "Connected to"%} {{ social.social }} {% trans "account" %} </h3>
+			<img src="{{ social.photoURL }}" height="50" /><br/>
+			{{ social.displayName }}
+		
+	</div>
+	<div class="sep">
+		
+	</div>
+	<div class="w_email">
+		<form action="" method="post" class="userform">
+			<fieldset>
+				
+				{% if msg %}
+					<div class="flash-error">
+						<span>{{msg}}</span>
+					</div>        
+				{% endif %}
+				<p>
+					<label for="email">{% trans "Email"%} <span class="req">*</span></label>
+					<input placeholder="{% trans "Email address"%}" name="email_display" type="text" value="{{ r.email }}" size="30" disabled />
+					<input type="hidden" name="email" value="{{ r.email }}" />
+				</p>
+				<p>
+					<label for="username">{% trans "Username" %} <span class="req">*</span> </label>
+					<input placeholder="{% trans "Username (alphanumeric)" %}" name="username" value="{{ r.username }}" type="text" size="30" maxlength="16" required autofocus />
+					<div class="desc">{% trans "Use at least 4 characters" %}</div>
+				</p>
+				<p>
+					<label for="mobile">{% trans "Mobile" %} <span class="req">*</span> </label>
+					<select name="country_phone_code" style="margin-right: 5px;">
+						<option value="+62">+62</option>
+					</select>
+					<input placeholder="Mobile" name="mobile" value="{{ r.mobile }}" type="text" size="23" maxlength="16" required />
+				</p>
+				<p>
+				  	<label for="nickname">{% trans "Display Name" %} <span class="req">*</span> </label>
+				  	<input placeholder="{% trans "Display Name" %}" name="nickname" value="{{ r.nickname }}" type="text" size="30" required />
+				  	<div class="desc">{% trans "This name will shown in our website"%}</div>
+				</p>
+				
+				<br/>
+				<p>
+					<label>&nbsp;</label>
+					<input type="submit" name="submit" value="Signup"> 
+				</p>
+				<div class="agree">	
+					{% trans 'By clicking "Signup", I agree that:' %}
+					<ul>
+						<li>{% trans 'I have read and accepted the User Agreement and Privacy Policy.'%}</li>
+						<li>{% trans 'I may receive communications from' %} {{ domain }}.</li>
+					</ul>
+				</div>
+				<br/>
+			</fieldset>
+		</form>
+
+	</div>
+
+{% endblock %}
+
+{% block footer_include %}
+<script>
+function togglepass() {
+	if ( $("#password").prop("type") == "text") {
+		$("#password").prop("type", "password");
+	} else {
+		$("#password").prop("type", "text");
+	};
+}
+</script>
+{% endblock %} 
+	

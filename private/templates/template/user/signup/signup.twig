@@ -1,0 +1,92 @@
+{% extends "main.twig" %}
+{% block pagetitle %}{% trans "Signup" %} - Olelang.com{% endblock %}
+{% block bodyclass %}user{% endblock %}
+
+{% block header %}
+		<div class="wrap" style="text-align: center; z-index: 2; position: relative;">
+			<a href="{{ path_for('homepage') }}" class="site-logo"><abbr title="{% trans "Lelang Online - Olelang.com" %}"><img src="/img/logo.png" /></abbr></a>
+		</div>
+{% endblock %}
+
+{% block content %}
+	<h1 class="page-title">{% trans "Signup" %}</h1>
+	<p class="sub-page-title">{% trans "Have an account?" %}. <a href="/login">{% trans "Login here" %}</a></p>
+
+	<div class="w_social">
+		<a href="/fb" class="btn btn-fb" rel="nofollow"><i class="icon-facebook"></i> {% trans "Signup using Facebook" %}</a>
+		<a href="/google" class="btn btn-google" rel="nofollow"><i class="icon-google"></i> {% trans "Signup using Google" %}</a>
+		{#
+		<a href="/yahoo" class="btn btn-yahoo"><i class="icon-yahoo"></i>&nbsp; {% trans "Signup using Yahoo" %}</a>
+		#}
+	</div>
+	<div class="sep">
+		<div class="w_or">{% trans "Or" %}</div>	
+	</div>
+	<div class="w_email">
+		<form action="" method="post" class="form signup">
+			<fieldset>
+				
+				{% if msg %}
+					<div class="flash-error">
+						<span>{{msg}}</span>
+					</div>        
+				{% endif %}
+				<p>
+					<label for="email">{% trans "Email"%} <span class="req">*</span></label>
+					<input placeholder="{% trans "Email address"%}" name="email" type="text" value="{{ r.email }}" size="36" class="auto" required autofocus />
+					<span class="desc" style="color: red;">{% trans 'We will send an activation link to your email'%}</span>
+				</p>
+				<p>
+					<label for="username">{% trans "Username" %} <span class="req">*</span> </label>
+					<input placeholder="{% trans "Username (alphanumeric)" %}" name="username" value="{{ r.username }}" type="text" size="36" maxlength="16" class="auto" required />
+					<span class="desc">{% trans "Use at least 4 characters" %}</span>
+				</p>
+				<p>
+					<label for="password">{% trans "Password" %} <span class="req">*</span> </label>
+					<input placeholder="{% trans "Password" %}" name="password" type="password" value="{{ r.password }}" size="30" maxlength="20" required id="password" class="auto" /> &nbsp; <a href="javascript:togglepass();" class="btnEye"><i class="icon-eye"></i></a>
+					<span class="desc">{% trans "Use at least 6 characters" %}</span>
+				</p>
+				<p>
+					<label for="mobile">{% trans "Mobile" %} <span class="req">*</span> </label>
+					<select name="country_phone_code" class="auto">
+						<option value="+62">+62</option>
+					</select> &nbsp;
+					<input placeholder="Mobile" name="mobile" value="{{ r.mobile }}" class="auto" type="text" size="28" maxlength="16" required />
+				</p>
+				<p>
+				  	<label for="nickname">{% trans "Display Name" %} <span class="req">*</span> </label>
+				  	<input placeholder="{% trans "Display Name" %}" name="nickname" value="{{ r.nickname }}" type="text" size="36" class="auto" required />
+				  	<span class="desc">{% trans "This name will shown in our website"%}</span>
+				</p>
+				<p>
+					<label>&nbsp;</label>
+					<input type="submit" name="submit" value="Signup"> 
+				</p>
+				<div class="agree">	
+					{% trans 'By clicking "Signup", I agree that:' %}
+					<ul>
+						<li>{% trans 'I have read and accepted the User Agreement and Privacy Policy.'%}</li>
+						<li>{% trans 'I may receive communications from' %} {{ domain }}.</li>
+					</ul>
+					<a href="/forgot">{% trans 'Already signup, but forgot password?' %}</a>
+				</div>
+				<br/>
+			</fieldset>
+		</form>
+	</div>
+{% endblock %}
+
+{% block footer_include %}
+<script>
+function togglepass() {
+	if ( $("#password").prop("type") == "text") {
+		$("#password").prop("type", "password");
+		$(".btnEye").html('<i class="icon-eye"></i>');
+	} else {
+		$("#password").prop("type", "text");
+		$(".btnEye").html('<i class="icon-eye-off"></i>');
+	};
+}
+</script>
+{% endblock %} 
+	

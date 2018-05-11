@@ -1,0 +1,4 @@
+vendor/
+tmp/*
+private/sass/*.cfg
+*.lock

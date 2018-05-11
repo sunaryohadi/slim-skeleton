@@ -1,0 +1,64 @@
+{% spaceless %}<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{% block pagetitle %}Slim Skeleton{% endblock %}</title>
+	<meta name="description" content="{% block sitedesc %}Slim Skeleton - Bourbon - Flex{% endblock %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<link rel="shortcut icon" href="/favicon.png">
+	{% block header_include %}{% endblock %} 
+	<link href="/css/htmlia.css" rel="stylesheet" media="all">
+	<link href="/css/flexbase.css" rel="stylesheet" media="all">
+	<!--[if lt IE 9]><script src="js/html5shiv-printshiv.js" media="all"></script><![endif]-->
+</head>
+<body class="{% block bodyclass %}home{% endblock %}">
+	{% block header %}
+		<header role="banner" class="site-header">
+			<div class="flex">
+				<a href="{{ path_for('homepage') }}" class="site-logo"><abbr title="{% trans "Logo - Yoursite.com" %}"><img src="/img/logo.png" /></abbr></a>
+				<nav id="main-navigation" role="navigation" class="nav-menu nav-user wrap">
+					<ul>
+						<li><a href="#"><i class="icon-plus"></i> <span>{% trans "Menu 1" %}</span></a></li>
+						<li><a href="#"><i class="icon-plus"></i> <span>{% trans "Menu 2" %}</span></a></li>
+						<li><a href="#"><i class="icon-plus"></i> <span>{% trans "Menu 3" %}</span></a></li>
+						<li><a href="#"><i class="icon-plus"></i> <span>{% trans "Menu 4" %}</span></a></li>
+						<li><a href="#"><i class="icon-plus"></i> <span>{% trans "Menu 5" %}</span></a></li>
+					</ul>	
+				</nav>	
+			</div>
+		</header>
+	{% endblock %}
+	<div id="content" class="site-content">
+		<div class="flex">
+	    	{% block sitecontent %} 
+				<main role="main">{% block content %}This is content{% endblock %}</main>
+				{% block aside %}<aside>This a side example</aside>{% endblock %}
+			{% endblock %}
+		</div>
+
+		<div class="flex">
+			<div class="col-3">
+				Test
+			</div>
+			<div class="col-3">
+				Test
+			</div>
+			<div class="col-3">
+				Test
+			</div>
+		</div>
+	</div>
+
+	<footer role="contentinfo" class="site-footer">
+		<div class="flex">
+			<div class="colophon"><a href="/terms">Terms of Use</a> | <a href="/privacy">Privacy Policy</a> |  <a href="/team">Team</a> | <a href="/team/recruit">Recruit</a></div>
+			<div class="copyright">&copy; <time datetime="2017">2017</time> {% if  'now'| date('Y') > 2017 %}- <time datetime="{{ 'now' | date('Y') }}">{{ 'now' | date('Y') }}</time>{% endif %} yoursite.com</div>
+		</div>
+	</footer>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write("<script src='/js/jquery-3.1.1.min.js'>\x3C/script>")</script>
+	<script src="/js/flexbase.js"></script>
+    {% block footer_include %}{% endblock %} 
+</body>
+</html>{% endspaceless %}

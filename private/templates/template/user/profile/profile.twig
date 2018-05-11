@@ -1,0 +1,133 @@
+{% extends "main.twig" %}
+{% block header_include %}
+<link rel='stylesheet' id='chosen-css'  href='/js/chosen/chosen.min.css' type='text/css' media='all'>
+{% endblock %}
+{% block bodyclass %}dashboard{% endblock %}
+
+{% block content %}
+	
+	<section>
+		<h1 class="page-title">Profile</h1>  
+		<form action="" method="post" class="form profile">
+			{% if msg %}
+				<div class="flash-{{ msgclass}} autohide">
+					<span>{{msg}}</span>
+				</div>        
+			{% endif %}
+			<fieldset class="split">
+				<p>
+					<label for="email">Email</label>
+					<input placeholder="Email address" name="email" value="{{ r.email }}" disabled type="text" size="27" />
+				</p>
+				<p>
+					<label for="username">Username</label>
+					<input placeholder="Username" name="username" value="{{ r.username }}" disabled type="text" />
+				</p>
+				<p>
+					<label for="mobile">Mobile</label>
+					<select name="country_phone_code" class="auto">
+						<option value="+62">+62</option>
+					</select> 
+					<input placeholder="Mobile phone" name="mobile" type="text" value="{{ r.mobile }}" class="auto" />
+				</p>
+				<p>
+					<label for="nickname">Display Name</label>
+					<input placeholder="Display/Nick name" name="nickname" type="text" value="{{ r.nickname }}" size="27" autofocus />
+				</p>
+				<p>
+					<label for="fullname">Fullname</label>
+					<input placeholder="Fullname" name="fullname" type="text" value="{{ r.fullname }}" size="50" />
+				</p>
+				{#
+				<p>
+					<label for="phone">Phone</label>
+					<input placeholder="Office/Home phone" name="phone" value="{{r.phone }}" type="text" size="27" />
+				</p>
+				#}
+				<input type="hidden" name="phone" value="{{ r.phone }}">
+			</fieldset>	
+			<fieldset class="split">
+				<p>
+					<label for="country">Country</label>
+					<select name="country_iso" disabled>
+						<option value="">- {% trans "Select Country" %} -</option>
+						{% for c in countries %}
+							<option value="{{ c.iso }}"{% if c.iso == 'ID' %} selected{% endif %}>{{ c.country }}</option>
+						{% endfor %}
+					</select>
+				</p>
+				<p>
+					<label for="city">{% trans "City" %}</label>
+					<select name="city_id" id="city_id" class="chosen">
+						<option value="">- {% trans "select City" %} - </option>
+						{% for a in cities %}
+							<option value="{{ a.id }}"{% if a.id == r.city_id %} selected{% endif %}>{{ a.title }}</option>
+						{% endfor %}
+					</select>
+				</p>
+				<p>	<label for="area_id">{% trans "Area" %}</label>
+					<select name="area_id" id="area_id" class="chosen">
+						<option value="">- {% trans "select City first to list area" %} -</option>
+						{% for a in areas %}
+							<option value="{{ a.id }}"{% if a.id == r.area_id %} selected{% endif %}>{{ a.title }}</option>
+						{% endfor %}
+					</select>
+				</p>
+				<p>
+					<label for="zip">{% trans "Postal code" %}</label>
+					<input placeholder="Postal code" name="zip" size="10" type="text" value="{{ r.zip }}" class="auto" size="10" />
+				</p>
+				<p>
+					<label for="address">Address</label>
+					<textarea cols="50" rows="3" name="address">{{ r.address }}</textarea>
+				</p>
+				<br>
+			</fieldset>
+			<fieldset>
+				<p>
+					<label>&nbsp;</label>
+					<input type="submit" name="submit" value="Update">
+				</p>
+			</fieldset>
+			<br>
+		</form>
+	</section>
+{% endblock %}
+
+{% block aside %} 
+	<aside role="complementary">
+		<section>
+			<ul>
+				<li class="active"><a href="/profile">{% trans "Profile" %}</a></li>
+				<li><a href="/profile/password">{% trans "Change Password" %}</a></li>
+			</ul>
+		</section>
+	</aside>
+{% endblock %}
+
+{% block footer_include %}
+<script type="text/javascript" src="/js/chosen/chosen.jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$(".chosen").chosen({ width: "320px", search_contains:true });
+	$('body').on('change', '#city_id', function(e){
+		city_id = $(this).val();
+		$.getJSON( "/api/area", {
+			id: city_id
+		}).done(function( data ) {
+			// console.log(data);
+			html = '<option value="">- {% trans "select Area" %} -</option>';
+			for (var key in data) {
+				id = data[key]['id'];
+				name = data[key]['title'];
+				html = html + '<option value="' + id + '">' + name + '</option>';
+				//console.log(key);
+			}
+			$('#area_id').html(html).trigger("chosen:updated");
+		});
+	});
+});
+</script>
+{% endblock %}
+
+	

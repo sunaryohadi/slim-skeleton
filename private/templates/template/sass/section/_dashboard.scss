@@ -1,0 +1,14 @@
+
+.dashboard {
+	main{
+		padding: 0 10px 10px 10px;
+		@include grid-media($tablet) {
+			padding:0;
+		}
+	}
+	aside section {
+		@include grid-media($tablet) {
+			padding: 0 10px 0 0;
+		}
+	}
+}

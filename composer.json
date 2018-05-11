@@ -1,6 +1,6 @@
 {
   "name": "sunaryohadi/slim3-skeleton",
-  "description": "Simple Slim Framework 3 skeleton with Twig, Monolog, ezSQL. Also has sample of simple CRUD.",
+  "description": "Simple Slim Framework 3 skeleton with Twig, Monolog, ezSQL (mysqli). Also has sample of simple CRUD.",
   "version": "1.0.0-dev", 
   "license": "BSD-3-Clause",
   "type": "project",

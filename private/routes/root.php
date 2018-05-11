@@ -1,8 +1,5 @@
 <?php
 // Routes
-include "user.php"; 
-
-
 $app->get('/', 'App\Action\Home:index')->setName('homepage');
 
 // Grouping actions

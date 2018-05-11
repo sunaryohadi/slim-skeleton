@@ -13,22 +13,24 @@ use App\Action\Controller;
 final class Home extends Controller
 {
 
-  public function index(Request $request, Response $response, $args)
-  {
-    
-    // Sample logger
-    $this->logger->info("Home page action dispatched");
+	public function index(Request $request, Response $response, $args)
+	{
+		
+		// Sample logger
+		$this->logger->info("Home page action dispatched");
 
-    // Sample Flash Message for the next request
-    // $this->flash->AddMessage('error','Test Flash Message - Error');
-    // $this->flash->AddMessage('alert','Test Flash Message - Alert'); 
-    // $this->flash->AddMessage('success','Test Flash Message - Success'); 
-    // $this->flash->AddMessage('notice','Test Flash Message - Notice'); 
+		// Sample Flash Message for the next request
+		// $this->flash->AddMessage('error','Test Flash Message - Error');
+		// $this->flash->AddMessage('alert','Test Flash Message - Alert'); 
+		// $this->flash->AddMessage('success','Test Flash Message - Success'); 
+		// $this->flash->AddMessage('notice','Test Flash Message - Notice'); 
 
-    // Render
-    $this->view->render($response, 'home.twig');
+		// Render
+		$this->view->render($response, 'home.twig', [
+			'title' => 'Homepage',
+		]);
 
-    return $response;
-  }
+		return $response;
+	}
 
 }

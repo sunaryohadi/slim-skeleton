@@ -1,0 +1,116 @@
+@import "bourbon/bourbon";
+@import "neat/neat";
+@import url('https://fonts.googleapis.com/css?family=Lato:200,400,400italic|Roboto:300,300italic,500&subset=latin,latin-ext,cyrillic,cyrillic-ext,greek-ext,greek,vietnamese');
+@import "normalize";
+@import "material/color"; // material.io color
+
+$max-width: 1200px;
+
+// Override Neat gutter & Columns
+$neat-grid: (
+  columns: 12,
+  gutter: 20px,
+);
+
+// mobile first
+$wide: (
+	columns: 12,
+	// gutter: 15px,
+	media: 1281px, 
+);
+
+$screen: (
+	columns: 12,
+	//gutter: 20px,
+	media: 481px,
+);
+
+
+html, body {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	line-height: 2em;
+	font-weight: 300;
+	color: #333;
+	min-height: 100%;
+	background-color: #F9F9F4;
+	background-image: repeating-linear-gradient(0deg,
+		transparent,
+		transparent 31px,
+		rgba($clr-green-300,0.1) 32px
+    );
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	color: #111;
+	@include grid-media($screen){
+		
+	}
+}
+
+.fullpage {
+	width: 100vw;
+	height: 100vh;
+}
+
+.container {
+	@include grid-container;
+	max-width: $max-width;
+	margin: 0 auto;	
+}
+
+#header {
+	padding-top: 20px;
+	.logo {
+		width: 100px;
+		height: 100px;
+	}
+	.branding {
+		margin: 0;
+		@include grid-column(12);
+		text-align: center;
+		@include grid-media($screen){
+			@include grid-column(2);
+		}
+	}
+	nav {
+		@include grid-column(12);
+		text-align: center;
+		@include grid-media($screen){
+			@include grid-column(10);
+			text-align: right;
+		}
+		
+		ul {
+			padding: 10px 0;
+		}
+		li {
+			display: inline;
+			padding: 0 15px;
+		}
+	}
+}
+
+.home {
+	article {
+		section {
+			@include grid-column(12);
+			&.half {
+				@include grid-media($screen){
+					@include grid-column(6);
+				}
+			}
+		}
+	}
+}
+
+footer {
+	padding: 15px 0;
+	.copyright {
+		@include grid-column(12);
+		font-size: 0.8em;
+	}
+}
+

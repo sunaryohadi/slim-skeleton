@@ -5,25 +5,20 @@
 @import "material/color"; // material.io color
 
 $max-width: 1200px;
-
 // Override Neat gutter & Columns
 $neat-grid: (
-  columns: 12,
+  // columns: 12,
   gutter: 20px,
 );
-
-// mobile first
+$screen: (
+	// columns: 12,
+	media: 481px,
+);
 $wide: (
-	columns: 12,
-	// gutter: 15px,
+	// columns: 12,
 	media: 1281px, 
 );
 
-$screen: (
-	columns: 12,
-	//gutter: 20px,
-	media: 481px,
-);
 
 
 html, body {
@@ -48,6 +43,11 @@ h1, h2, h3, h4, h5 {
 	@include grid-media($screen){
 		
 	}
+}
+
+img {
+	width: 100%;
+	height: auto;
 }
 
 .fullpage {
@@ -97,9 +97,9 @@ h1, h2, h3, h4, h5 {
 	article {
 		section {
 			@include grid-column(12);
-			&.half {
+			&.level {
 				@include grid-media($screen){
-					@include grid-column(6);
+					@include grid-column(3);
 				}
 			}
 		}

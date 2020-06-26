@@ -1,0 +1,13 @@
+{
+	"phpfmt.passes": [
+		"PSR2KeywordsLowerCase",
+		"PSR2LnAfterNamespace",
+		"PSR2CurlyOpenNextLine",
+		"PSR2ModifierVisibilityStaticOrder",
+		"PSR2SingleEmptyLineAndStripClosingTag",
+		"ReindentSwitchBlocks"
+	],
+	"phpfmt.exclude": ["ReindentComments", "StripNewlineWithinClassBody"],
+	"phpfmt.psr2": false,
+	"phpfmt.indent_with_space": 2
+}

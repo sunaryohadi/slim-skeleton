@@ -21,8 +21,8 @@ Twig template using SASS and bourbon family. Also included sample of "simple CRU
 ### Run it:
 
 1. `$ cd my-app`
-2. `$ php -S 0.0.0.0:8888 -t web index.php`
-3. Browse to http://localhost:8888
+2. `$ composer start`
+3. Browse to http://localhost:8080
 
 ## Key directories
 

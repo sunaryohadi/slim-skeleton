@@ -30,11 +30,19 @@ $container['flash'] = function ($c) {
 
 // ezSQL -- same used as in wpdb of WordPress
 // $db = new ezSQL_mysqli($dbuser='', $dbpassword='', $dbname='', $dbhost='localhost', $encoding='')
-$container['db'] = function ($c) { 
-  $settings = $c->get('settings');
-  return new ezSQL_mysqli( $settings['db']['dbuser'], $settings['db']['dbpassword'], $settings['db']['dbname'], $settings['db']['dbhost'], 'utf8mb4' );
-};
+$container['db'] = function ($c) {
+  $settings = $c->get('settings')['db'];
 
+  $dbSetting = new ezsql\Config('mysqli', [
+    $settings['dbuser'],
+    $settings['dbpassword'],
+    $settings['dbname'],
+    $settings['dbhost'],
+    '3306',
+    'utf8mb4']);
+
+  return new ezsql\Database\ez_mysqli($dbSetting);
+};
 
 // -----------------------------------------------------------------------------
 // Service factories
@@ -55,15 +63,15 @@ $container['logger'] = function ($c) {
 
 // Set Base Controller
 /*
-$container['App\Action\Controller'] = function ($c) { 
-  return new App\Action\Controller($c);
+$container['App\Action\Controller'] = function ($c) {
+return new App\Action\Controller($c);
 };
 
 $container['App\Action\Home'] = function ($c) {
-  return new App\Action\Home($c);
+return new App\Action\Home($c);
 };
 
 $container['App\Action\SimpleCRUD'] = function ($c) {
-  return new App\Action\SimpleCRUD($c);
+return new App\Action\SimpleCRUD($c);
 };
-*/
+ */

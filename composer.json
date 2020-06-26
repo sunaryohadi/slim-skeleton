@@ -23,13 +23,15 @@
   "require": {
     "php" : ">=5.6",
     "ext-mbstring": "*",
-    "slim/slim": "^3",
-    "slim/twig-view": "^2.4",
-    "twig/extensions": "^1.5",
+    "slim/slim": "^3.12.3",
+    "slim/twig-view": "^2.5.1",
+    "twig/extensions": "^1.5.4",
     "slim/flash": "^0.4.0",
-    "slim/csrf": "^0.8.2",
-    "sunaryohadi/ezsql-mysqli": "^1.2",
-    "monolog/monolog": "^1.23",
-    "snicholson/slimfilecache": "^1.0"
-  }
+    "slim/csrf": "^1.0",
+    "monolog/monolog": "^1.25.4",
+    "ezsql/ezsql": "^4.0"
+  },
+	"scripts": {
+		"start": "php -S 0.0.0.0:8080 -t web"
+	}
 }

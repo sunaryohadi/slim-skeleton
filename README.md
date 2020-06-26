@@ -12,7 +12,7 @@ Twig template using SASS and bourbon family. Also included sample of "simple CRU
 
 ## Create your project:
 
-    $ composer create-project -n -s dev sunaryohadi/slim3-skeleton my-private
+    $ composer create-project -n -s dev sunaryohadi/slim3-skeleton my-app
 
 ### Database
 
@@ -49,5 +49,3 @@ Twig template using SASS and bourbon family. Also included sample of "simple CRU
 
 ## Credits
 * https://github.com/akrabat/slim3-skeleton
-* http://justinvincent.com/ezsql
-* http://bourbon.io
